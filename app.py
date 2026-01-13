@@ -68,6 +68,21 @@ def index():
 def api():
     return render_template('api.html')
 
+#####
+# NanbyoData API specification JSON
+# /api_spec_json
+@app.route('/api_spec_json')
+def api_spec_json():
+    api_spec_path = os.path.join(os.path.dirname(__file__), 'api_spec_json')
+    try:
+        with open(api_spec_path, 'r', encoding='utf-8') as f:
+            api_spec = json.load(f)
+        return jsonify(api_spec)
+    except FileNotFoundError:
+        return jsonify({'error': 'API specification file not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON in API specification file'}), 500
+
 
 #####
 # NanbyoDataについて
@@ -93,11 +108,11 @@ def datasets():
     return render_template('datasets.html')
 
 #####
-# STATISTICSについて
+# NanbyoData in numbersについて
 ## GET: 
-@app.route('/stats')
+@app.route('/nanbyodata-in-numbers')
 def stats():
-    return render_template('stats.html')
+    return render_template('nanbyodata-in-numbers.html')
 
 #####
 # TEAM
