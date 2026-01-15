@@ -13,6 +13,7 @@ export const designatedIntractableDiseaseJaColumns = [
   { id: 'num_of_2021', label: '2021年', type: 'number' },
   { id: 'num_of_2022', label: '2022年', type: 'number' },
   { id: 'num_of_2023', label: '2023年', type: 'number' },
+  { id: 'num_of_2024', label: '2024年', type: 'number' },
 ];
 
 export const designatedIntractableDiseaseEnColumns = [
